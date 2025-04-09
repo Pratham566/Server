@@ -4,7 +4,7 @@ const db = require("./db");
 const cors = require("cors");
 require("dotenv").config();
 
-app.use(cors({ origin: "https://client-p7p5.vercel.app/", credentials: true }));
+app.use(cors({ origin: "https://client-p7p5.vercel.app", credentials: true }));
 
 const PORT = process.env.PORT || 3000;
 
