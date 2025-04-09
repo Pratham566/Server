@@ -8,10 +8,7 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 const PORT = process.env.PORT || 3000;
 
-const allowedOrigins = [
-  "http://localhost:5173", // Local development
-  "https://client-p7p5.vercel.app/",
-];
+const allowedOrigins = ["https://client-p7p5.vercel.app/"];
 
 app.use(
   cors({
