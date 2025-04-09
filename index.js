@@ -2,13 +2,14 @@ const express = require("express");
 const app = express();
 const db = require("./db");
 const cors = require("cors");
+require("dotenv").config();
+
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
-const PORT = process.env.PORT || 3000; // Use dynamic port
+const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   "http://localhost:5173", // Local development
-  "https://client-ashen-xi.vercel.app/", // Update with actual frontend Vercel URL
 ];
 
 app.use(

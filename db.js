@@ -1,14 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-var db = mongoose.connect("mongodb://localhost:27017/user",{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const uri = process.env.MONGO_URL;
 
-db.then(() => {
-  console.log("Connected to mongoDB");
-}).catch((err) => {
-  console.log(err);
-});
-
-module.exports = db;
+mongoose
+  .connect(uri)
+  .then(() => console.log("✅ Connected to MongoDB Atlas"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));

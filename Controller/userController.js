@@ -1,9 +1,11 @@
 const userSchema = require("../Models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 
 const getData = async (req, res) => {
   try {
+    await mongoose.connection.asPromise();
     const users = await userSchema.find();
     res.status(200).json({ message: "Get all user", data: users });
   } catch (err) {
@@ -64,6 +66,7 @@ const loginUser = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+mongoose.set("bufferCommands", false);
 
 module.exports = {
   getData,
